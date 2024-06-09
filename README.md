@@ -1,7 +1,8 @@
-# Thesis_validation
-This repository has validated "[Are Face Detection Models Biased?](https://arxiv.org/abs/2211.03588)".
+# 論文検証
+このリポジトリでは、以下の論文の検証を行っている。<br>
+"[Are Face Detection Models Biased?](https://arxiv.org/abs/2211.03588)".
 
-# Flow to generate pseudo code
+# ソースコード生成までのフロー
 ## STEP1: 論文の理解と分析
 ### 1-1: 目的の把握
 論文の主要な目的と問題点を理解する。この論文では、顔検出モデルにおけるバイアスの存在を分析している。<br>
@@ -12,7 +13,7 @@ MTCNN、BlazeFace、DSFD、RetinaFaceなど、論文で使用された顔検出�
 <br>
 ## STEP2: 擬似コードの生成
 ### 2-1: アルゴリズムの擬似コード作成
-論文で説明されている手法を基に、アルゴリズムの擬似コードを書き出します。これにはデータの前処理、モデルの適用、結果の評価などが含まれます。<br>
+論文で説明されている手法を基に、アルゴリズムの擬似コードを書き出す。これにはデータの前処理、モデルの適用、結果の評価などが含まれる。<br>
 <br>
 ## STEP3: ソースコードの生成
 ### 3-1: 開発環境の設定
