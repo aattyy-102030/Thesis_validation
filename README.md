@@ -1,32 +1,58 @@
-# 論文検証
-このリポジトリでは、以下の論文の検証を行っている。<br>
-"[Are Face Detection Models Biased?](https://arxiv.org/abs/2211.03588)".
+# 顔検出モデルのバイアス分析
 
-# ソースコード生成までのフロー
-## STEP1: 論文の理解と分析
-### 1-1: 目的の把握
-論文の主要な目的と問題点を理解する。この論文では、顔検出モデルにおけるバイアスの存在を分析している。<br>
-### 1-2: 使用されたモデルの特定
-MTCNN、BlazeFace、DSFD、RetinaFaceなど、論文で使用された顔検出モデルを特定する。<br>
-### 1-3: データセットの確認
-論文で使用されたF2LAデータセットの構造と特徴を確認する。<br>
+## リポジトリ概要
+このリポジトリでは、論文"[Are Face Detection Models Biased?](https://arxiv.org/abs/2211.03588)"に基づき、複数の顔検出モデル（MTCNN, BlazeFace, DSFD, RetinaFace）を使用し、CelebAデータセットを使用しバイアス分析を行います。
+
+## 目的と目標
+顔検出モデルにおけるバイアスの有無を確認し、その結果をもとに改善策を提案することを目的としています。
+
+## 使用モデル
+- [MTCNN](https://github.com/ipazc/mtcnn)
+- [BlazeFace](https://github.com/hollance/BlazeFace-PyTorch)
+- [DSFD](https://github.com/Tencent/FaceDetection-DSFD)
+- [RetinaFace](https://github.com/serengil/retinaface)
+
+## 使用データセット
+- [CelebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html)
+
+## セットアップと実行手順
+**1. リポジトリのクローン**
+```bash
+git clone https://github.com/ ~ /facedetection-bias-analysis.git
+cd facedetection-bias-analysis
+```
+
+**2.  以下のコマンドを使用して必要なライブラリをインストールしてください。**
+```bash
+pip install -r requirements.txt
+```
+
+**3. データセットをダウンロードし、data/フォルダに配置します。**
 <br>
-## STEP2: 擬似コードの生成
-### 2-1: アルゴリズムの擬似コード作成
-論文で説明されている手法を基に、アルゴリズムの擬似コードを書き出す。これにはデータの前処理、モデルの適用、結果の評価などが含まれる。<br>
 <br>
-## STEP3: ソースコードの生成
-### 3-1: 開発環境の設定
-Pythonを使用し、必要なライブラリ（PyTorch, OpenCVなど）をインストールする。<br>
-### 3-2: データ処理関数の実装
-画像データを読み込み、前処理を行う関数を実装する。<br>
-### 3-3: 顔検出関数の実装
-各顔検出モデルを用いて画像から顔を検出する関数を実装する。<br>
-### 3-4: バイアス分析関数の実装
-検出結果からバイアスを分析する関数を実装する。<br>
+
+## 実行方法
+**1. データの前処理を行います:**
+```bash
+python src/data_loader.py
+```
 <br>
-## STEP4: テストと評価
-### 4-1: モデルのテスト
-作成したコードをテストデータセットで試し、期待される結果が得られるかを確認する。<br>
-### 4-2: 結果の評価
-検出精度とバイアスの程度を評価する。<br>
+
+**2. 各モデルで顔検出を行います:**
+```bash
+python main.py
+```
+<br>
+
+**3. 結果を評価します:**
+```bash
+python src/evaluation.py
+```
+- [ ] 出力例：(画像貼る)
+
+## 結果の確認
+結果はresults/フォルダに保存されます。<br>
+各モデルの出力・バイアスの評価結果を確認してください。
+
+## 今後の展望
+- [ ] コードの検証、結果の考察
