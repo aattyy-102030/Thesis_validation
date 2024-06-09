@@ -1,4 +1,4 @@
-各ソースコードの概要
+＊各ソースコードの概要＊
 <data_loader.py>
 - DataLoaderクラス : 画像ディレクトリ、アノテーションファイル、出力ディレクトリを受け取る。
 - process_imagesメソッド : アノテーションファイルを読み込み、各画像に対して前処理を行う。
@@ -10,10 +10,10 @@
 - detect_facesメソッド : 指定されたモデル名に応じて適切な検出メソッドを呼び出します。
 - その他メソッド : 各モデルに対して顔検出を行うメソッド（detect_faces_<model_name>）を定義しています。
 
-<evaluation.py>
-- 
-
-
+<model_evaluation.py>
+- calculate_iouメソッドを追加し、2つのバウンディングボックス間のIoUを計算します。
+- match_boxesメソッド : true_boxesとpred_boxesを比較して一致するかどうかを判定し、それに基づいて評価指標を計算します。
+- evaluate_modelメソッド : 全ての画像についてIoUを計算し、マッチしたかどうかを基に精度、再現率、F1スコアを計算します。
 
 <utils.py>
 - 
