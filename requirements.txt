@@ -3,7 +3,7 @@ numpy
 torch
 torchvision
 pandas
-facenet-pytorch
+mtcnn
 blazeface
 dsfd
 retinaface
