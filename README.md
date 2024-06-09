@@ -18,8 +18,8 @@
 ## セットアップと実行手順
 **1. リポジトリのクローン**
 ```bash
-git clone https://github.com/ ~ /facedetection-bias-analysis.git
-cd facedetection-bias-analysis
+git clone -b main https://github.com/aattyy-102030/Thesis_validation.git
+cd Thesis_validation
 ```
 
 **2.  以下のコマンドを使用して必要なライブラリをインストールしてください。**
