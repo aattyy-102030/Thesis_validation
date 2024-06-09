@@ -1,5 +1,4 @@
 import os
-import cv2
 from face_detection import FaceDetection
 from model_evaluation import ModelEvaluation
 from utils import create_directories, load_image, save_predictions
