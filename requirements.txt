@@ -1,0 +1,9 @@
+opencv-python
+numpy
+torch
+torchvision
+pandas
+facenet-pytorch
+blazeface
+dsfd
+retinaface
