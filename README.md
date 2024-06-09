@@ -13,7 +13,7 @@
 - [RetinaFace](https://github.com/serengil/retinaface)
 
 ## 使用データセット
-- [CelebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html)
+- [CelebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) ([GoogleDrive](https://drive.google.com/drive/folders/0B7EVK8r0v71pWEZsZE9oNnFzTm8?resourcekey=0-5BR16BdXnb8hVj6CNHKzLg))
 
 ## セットアップと実行手順
 **1. リポジトリのクローン**
@@ -46,7 +46,7 @@ python main.py
 
 **3. 結果を評価します:**
 ```bash
-python src/evaluation.py
+python src/model_evaluation.py
 ```
 - [ ] 出力例：(画像貼る)
 
