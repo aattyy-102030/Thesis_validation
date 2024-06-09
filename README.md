@@ -1,10 +1,10 @@
 # 顔検出モデルのバイアス分析
 
 ## ■リポジトリ概要
-このリポジトリでは、論文"[Are Face Detection Models Biased?](https://arxiv.org/abs/2211.03588)"に基づき、複数の顔検出モデル（MTCNN, BlazeFace, DSFD, RetinaFace）を使用し、CelebAデータセットを使用しバイアス分析を行います。
+このリポジトリでは、論文"[Are Face Detection Models Biased?](https://arxiv.org/abs/2211.03588)"に基づき、CelebAデータセットを使用し複数の顔検出モデル（MTCNN, BlazeFace, DSFD, RetinaFace）のバイアス分析を行います。
 
 ## ■目的と目標
-顔検出モデルにおけるバイアスの有無を確認し、その結果をもとに改善策を提案することを目的としています。
+顔検出モデルにおけるバイアスの有無を確認し、その結果から各モデルの特徴・問題点を可視化することを目的としています。
 
 ## ■使用モデル
 - [MTCNN](https://github.com/ipazc/mtcnn)
@@ -54,31 +54,45 @@ python src/model_evaluation.py
 **1. main.pyの実行開始**
 <br>
 プロジェクトのエントリーポイントです。このスクリプトが全てを調整し、他のスクリプトを適宜呼び出します。
-
-**2. ディレクトリの設定と作成 (utils.py内のcreate_directories関数)**
+<br>
+↓
+<br>
+**2. ディレクトリの設定と作成 (utils.py / "create_directories"関数)**
 <br>
 predictions_dirとresults_dirというディレクトリが存在しない場合、これらを新たに作成します。
-
-**3. 顔検出器の初期化 (face_detection.py内のFaceDetectionクラス)**
 <br>
-このクラスは、MTCNN, BlazeFace, DSFD, RetinaFaceモデルを初期化し、これらを使用して画像から顔を検出する機能を提供します。
-
-**4. 画像の読み込みと顔検出 (utils.pyのload_image関数とFaceDetectionクラスのdetect_facesメソッド)**
+↓
+<br>
+**3. 顔検出器の初期化 (face_detection.py / "FaceDetection"クラス)**
+<br>
+このクラスでは、MTCNN, BlazeFace, DSFD, RetinaFaceモデルを初期化し、これらを使用して画像から顔を検出します。
+<br>
+↓
+<br>
+**4. 画像の読み込みと顔検出 (utils.py / "load_image"関数 , "FaceDetectionクラス"/ "detect_facesメソッド")**
 <br>
 data/images ディレクトリから画像ファイルを読み込み、顔検出器であるdetect_facesメソッドを使用して顔を検出します。
-
-**5. 予測結果の保存 (utils.pyのsave_predictions関数)**
 <br>
-検出した顔の情報（バウンディングボックス）をファイルに保存します。これは後の評価ステップで使用されます。
-
-**6. モデル評価 (model_evaluation.py内のModelEvaluationクラスのevaluate_modelメソッド)**
+↓
+<br>
+**5. 予測結果の保存 (utils.py / "save_predictions"関数)**
+<br>
+検出した顔の情報（バウンディングボックス）をファイルに保存します。これはのちの評価ステップで使用されます。
+<br>
+↓
+<br>
+**6. モデル評価 (model_evaluation.py / "ModelEvaluationクラス" / "evaluate_modelメソッド")**
 <br>
 保存された予測結果とアノテーションデータを比較して、各モデルの精度、再現率、F1スコアを計算します。
-
+<br>
+↓
+<br>
 **7. 結果の保存**
 <br>
 最終的な評価結果をresults/evaluation_results.csvに保存します。
-
+<br>
+↓
+<br>
 **8. main.pyの実行終了**
 <br>
 全ての処理が完了した後、プログラムは終了します。
