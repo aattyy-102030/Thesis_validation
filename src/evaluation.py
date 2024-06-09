@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-from sklearn.metrics import confusion_matrix, classification_report
+from sklearn.metrics import precision_score, recall_score, f1_score
 
 class Evaluation:
     def __init__(self, ground_truth_path, predictions_path):
@@ -9,25 +9,26 @@ class Evaluation:
 
     def evaluate(self):
         # 予測結果と実際のラベルの比較
-        y_true = self.ground_truth['label'].values
-        y_pred = self.predictions['predicted_label'].values
+        y_true = self.ground_truth['label'].tolist()
+        y_pred = self.predictions['predicted_label'].tolist()
 
-        # 混同行列と分類レポートの生成
-        cm = confusion_matrix(y_true, y_pred)
-        report = classification_report(y_true, y_pred)
+        # 評価指標の計算
+        precision = precision_score(y_true, y_pred, average='macro')
+        recall = recall_score(y_true, y_pred, average='macro')
+        f1 = f1_score(y_true, y_pred, average='macro')
 
-        return cm, report
+        return precision, recall, f1
 
-    def print_results(self, confusion_matrix, classification_report):
-        print("Confusion Matrix:")
-        print(confusion_matrix)
-        print("\nClassification Report:")
-        print(classification_report)
+    def print_results(self, precision, recall, f1):
+        print("Evaluation Results:")
+        print(f"Precision: {precision:.2f}")
+        print(f"Recall: {recall:.2f}")
+        print(f"F1 Score: {f1:.2f}")
 
 if __name__ == "__main__":
     ground_truth_path = 'data/ground_truth.csv'
     predictions_path = 'data/predictions.csv'
 
     evaluator = Evaluation(ground_truth_path, predictions_path)
-    cm, report = evaluator.evaluate()
-    evaluator.print_results(cm, report)
+    precision, recall, f1 = evaluator.evaluate()
+    evaluator.print_results(precision, recall, f1)
