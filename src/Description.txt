@@ -10,14 +10,10 @@
 - detect_facesメソッド : 指定されたモデル名に応じて適切な検出メソッドを呼び出す。
 - その他メソッド : 各モデルに対して顔検出を行うメソッド（detect_faces_<model_name>）を定義する。
 
-<model_evaluation.py>
-- calculate_iouメソッドを追加し、2つのバウンディングボックス間のIoUを計算する。
-- match_boxesメソッド : true_boxesとpred_boxesを比較して一致するかどうかを判定し、それに基づいて評価指標を計算する。
-- evaluate_modelメソッド : 全ての画像についてIoUを計算し、マッチしたかどうかを基に精度、再現率、F1スコアを計算する。
+<evaluation.py>
+- Evaluationクラス : 真のデータと予測データを読み込んで初期化する。
+- evaluateメソッド : 真のデータと予測データを比較し、精度（Precision）、再現率（Recall）、F1スコアを計算する。
+- print_resultsメソッド : 計算された評価指標を表示する。
 
 <utils.py>
-- load_image: 指定したパスから画像を読み込み、RGB形式に変換して返す。
-- save_predictions: 予測結果（バウンディングボックス）をテキストファイルに保存する。
-- create_directories: 必要なディレクトリを作成する。
-- draw_boxes: 指定したバウンディングボックスを画像に描画する。
-- save_image_with_boxes: バウンディングボックス付きの画像を指定したパスに保存する。
+
