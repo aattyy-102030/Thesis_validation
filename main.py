@@ -1,7 +1,7 @@
 import os
-from face_detection import FaceDetection
-from model_evaluation import ModelEvaluation
-from utils import create_directories, load_image, save_predictions
+from src.face_detection import FaceDetection
+from src.model_evaluation import ModelEvaluation
+from src.utils import create_directories, load_image, save_predictions
 
 def main():
     # ディレクトリ設定
